@@ -1,0 +1,9 @@
+<!-- @modelがuserの場合は、ユーザーの検索結果を表示 -->
+<% if @model == "user" %>
+  <h3>Users search for "<%= @content %>"</h3>
+  <%= render 'users/index', users: @results %>
+<!-- @modelがbookの場合は、投稿された本の検索結果を表示 -->
+<% elsif @model == "book" %>
+  <3>Books search for "<%= @content %>"</3>
+  <%= render 'books/index', books: @results %>
+<% end %>
