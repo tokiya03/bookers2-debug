@@ -18,12 +18,28 @@
   </tr>
 </table>
 
-<div class='row'>
-  <% if user.id == current_user.id %>
-    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
+<div class="row">
+  <div class="col d-flex justify-content-between">
+    <% if user.id == current_user.id %>
+      <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    <% else %>
+      <%= render "relationships/btn", user: user, options: { class: "" } %>
     <% end %>
-  <% else %>
-    <%= render "relationships/btn", user: user, options: { class: "" } %>
+  </div>
+  <% if @user != current_user %>
+    <% if (current_user.following?(@user)) && (@user.following?(current_user)) %>
+      <% if @isRoom == true %>
+        <%= link_to "チャットへ",  room_path(@roomId), class: "btn btn-primary" %>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field:user_id, value: @user.id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class: "btn btn-primary user-show-chat" %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
