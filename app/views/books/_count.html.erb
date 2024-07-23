@@ -1,4 +1,4 @@
-<h2>7日分の投稿数</h2>
+<h2 class="mt-4">7日分の投稿数</h2>
 <table class="table table-bordered">
   <tr>
     <th>6日前</th>
@@ -10,13 +10,13 @@
     <th>今日</th>
   </tr>
   <tr>
-    <td><%= @books.created_today.count %></td>
-    <td><%= @books.created_yesterday.count %></td>
-    <td><%= @books.created_2day_ago.count %></td>
-    <td><%= @books.created_3day_ago.count %></td>
-    <td><%= @books.created_4day_ago.count %></td>
-    <td><%= @books.created_5day_ago.count %></td>
-    <td><%= @books.created_6day_ago.count %></td>
+    <td><%= books.created_today.count %></td>
+    <td><%= books.created_yesterday.count %></td>
+    <td><%= books.created_2day_ago.count %></td>
+    <td><%= books.created_3day_ago.count %></td>
+    <td><%= books.created_4day_ago.count %></td>
+    <td><%= books.created_5day_ago.count %></td>
+    <td><%= books.created_6day_ago.count %></td>
   </tr>
 </table>
 
@@ -32,13 +32,13 @@
             {
               label: '投稿した本の数',
               data: [
-                <%= @books.created_6day_ago.count %>,
-                <%= @books.created_5day_ago.count %>,
-                <%= @books.created_4day_ago.count %>,
-                <%= @books.created_3day_ago.count %>,
-                <%= @books.created_2day_ago.count %>,
-                <%= @books.created_yesterday.count %>,
-                <%= @books.created_today.count %>
+                <%= books.created_6day_ago.count %>,
+                <%= books.created_5day_ago.count %>,
+                <%= books.created_4day_ago.count %>,
+                <%= books.created_3day_ago.count %>,
+                <%= books.created_2day_ago.count %>,
+                <%= books.created_yesterday.count %>,
+                <%= books.created_today.count %>
               ],
               borderColor: "rgba(0, 0, 255, 1)",
               backgroundColor: "rgba(0, 0, 0, 0)",
