@@ -12,7 +12,6 @@
       <%= render 'books/index',books: @books %>
       <!-- 過去7日分の投稿数をグラフ表示 -->
       <%= render 'books/count' %>
-  
       <!-- 投稿比を表示 -->
       <%= render 'books/comparison', today_book: @today_book, yesterday_book: @yesterday_book, this_week_book: @this_week_book, last_week_book: @last_week_book %>
     </div>
